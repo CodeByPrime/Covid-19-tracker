@@ -65,6 +65,15 @@ class _WorldStateScreenState extends State<WorldStateScreen>
                   ],
                 ),
               ),
+            ),
+            Container(
+              height: 40,
+              decoration: BoxDecoration(
+                  color: Color(0xff1aa260),
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: Center(
+                child: Text("Track Countries"),
+              ),
             )
           ],
         ),
