@@ -52,57 +52,10 @@ class _WorldStateScreenState extends State<WorldStateScreen>
               colorList: colorList,
               legendOptions:
                   LegendOptions(legendPosition: LegendPosition.right),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  vertical: MediaQuery.of(context).size.height * 0.02),
-              child: Card(
-                child: Column(
-                  children: [
-                    ReuseableRow(title: "total", value: "200"),
-                    ReuseableRow(title: "total", value: "200"),
-                    ReuseableRow(title: "total", value: "200")
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              height: 40,
-              decoration: BoxDecoration(
-                  color: Color(0xff1aa260),
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-              child: Center(
-                child: Text("Track Countries"),
-              ),
             )
           ],
         ),
       )),
-    );
-  }
-}
-
-class ReuseableRow extends StatelessWidget {
-  String title, value;
-  ReuseableRow({Key? key, required this.title, required this.value})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text(title), Text(value)],
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Divider()
-        ],
-      ),
     );
   }
 }
