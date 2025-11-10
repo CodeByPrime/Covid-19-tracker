@@ -1,10 +1,6 @@
 import 'dart:async';
 
-import 'package:covid_tracker/View/countries_list.dart';
-import 'package:covid_tracker/model/world_states_model.dart';
-import 'package:covid_tracker/services/states_services.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:pie_chart/pie_chart.dart';
 
 class WorldStateScreen extends StatefulWidget {
@@ -22,14 +18,14 @@ class _WorldStateScreenState extends State<WorldStateScreen>
   @override
   void initState() {
     super.initState();
-    // Timer(
-    //     const Duration(seconds: 4),
-    //     () => {
-    //           Navigator.push(
-    //               context,
-    //               MaterialPageRoute(
-    //                   builder: (context) => const WorldStateScreen()))
-    //         });
+//     Timer(
+//         const Duration(seconds: 4),
+//         () => {
+//               Navigator.push(
+//                   context,
+//                   MaterialPageRoute(
+//                       builder: (context) => const WorldStateScreen()))
+//             });
   }
 
   final colorList = [
