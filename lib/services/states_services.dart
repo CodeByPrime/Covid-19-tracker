@@ -17,8 +17,8 @@ class StateServices {
     }
   }
 
-  Future<List<dynamic>> countriesListapi() async {
-    final Response = await http.get(Uri.parse(AppUrls.worldStatesApi));
+  Future<List<dynamic>> CountriesListapi() async {
+    final Response = await http.get(Uri.parse(AppUrls.countriesList));
     var data = jsonDecode(Response.body);
     if (Response.statusCode == 200) {
       return data;

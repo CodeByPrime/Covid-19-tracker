@@ -1,6 +1,10 @@
 import 'dart:async';
 
+import 'package:covid_tracker/View/countries_list.dart';
+import 'package:covid_tracker/model/world_states_model.dart';
+import 'package:covid_tracker/services/states_services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:pie_chart/pie_chart.dart';
 
 class WorldStateScreen extends StatefulWidget {
@@ -18,14 +22,7 @@ class _WorldStateScreenState extends State<WorldStateScreen>
   @override
   void initState() {
     super.initState();
-//     Timer(
-//         const Duration(seconds: 4),
-//         () => {
-//               Navigator.push(
-//                   context,
-//                   MaterialPageRoute(
-//                       builder: (context) => const WorldStateScreen()))
-//             });
+
   }
 
   final colorList = [
@@ -133,37 +130,7 @@ class _WorldStateScreenState extends State<WorldStateScreen>
                   }
                 },
               ),
-              // PieChart(
-              //   chartRadius: MediaQuery.of(context).size.width / 4,
-              //   dataMap: const {"Total": 20, "Recovered": 15, "Deaths": 5},
-              //   animationDuration: Duration(milliseconds: 1200),
-              //   chartType: ChartType.ring,
-              //   colorList: colorList,
-              //   legendOptions:
-              //       LegendOptions(legendPosition: LegendPosition.right),
-              // ),
-              // Padding(
-              //   padding: EdgeInsets.symmetric(
-              //       vertical: MediaQuery.of(context).size.height * 0.02),
-              //   child: Card(
-              //     child: Column(
-              //       children: [
-              //         ReuseableRow(title: "total", value: "200"),
-              //         ReuseableRow(title: "total", value: "200"),
-              //         ReuseableRow(title: "total", value: "200")
-              //       ],
-              //     ),
-              //   ),
-              // ),
-              // Container(
-              //   height: 40,
-              //   decoration: BoxDecoration(
-              //       color: Color(0xff1aa260),
-              //       borderRadius: BorderRadius.all(Radius.circular(10))),
-              //   child: Center(
-              //     child: Text("Track Countries"),
-              //   ),
-              // )
+             
             ],
           ),
         )),
@@ -190,7 +157,7 @@ class ReuseableRow extends StatelessWidget {
           SizedBox(
             height: 5,
           ),
-          Divider()
+        const  Divider()
         ],
       ),
     );
