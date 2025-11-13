@@ -117,13 +117,18 @@ class _WorldStateScreenState extends State<WorldStateScreen>
                                   builder: (context) => const CountriesListScreen(),
                                 ));
                           },
-                          child: Container(
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: Color(0xff1aa260),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                              )),
+                          child: GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => CountriesListScreen()));
+                            },
+                            child: Container(
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff1aa260),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                )),
+                          ),
                         )
                       ],
                     );
