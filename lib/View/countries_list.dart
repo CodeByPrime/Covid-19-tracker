@@ -1,3 +1,4 @@
+import 'package:covid_tracker/View/detail_screen.dart';
 import 'package:covid_tracker/services/states_services.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
@@ -83,15 +84,27 @@ class _CountriesListScreenState extends State<CountriesListScreen> {
                           if (searchcontroller.text.isEmpty) {
                             return Column(
                               children: [
-                                ListTile(
-                                  title: Text(snapshot.data![index]['country']),
-                                  subtitle: Text(snapshot.data![index]['cases']
-                                      .toString()),
-                                  leading: Image(
-                                      height: 50,
-                                      width: 50,
-                                      image: NetworkImage(snapshot.data![index]
-                                          ['countryInfo']['flag'])),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                 DetailScreen(name: '',)));
+                                  },
+                                  child: ListTile(
+                                    title:
+                                        Text(snapshot.data![index]['country']),
+                                    subtitle: Text(snapshot.data![index]
+                                            ['cases']
+                                        .toString()),
+                                    leading: Image(
+                                        height: 50,
+                                        width: 50,
+                                        image: NetworkImage(
+                                            snapshot.data![index]['countryInfo']
+                                                ['flag'])),
+                                  ),
                                 )
                               ],
                             );
