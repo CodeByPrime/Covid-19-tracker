@@ -22,7 +22,6 @@ class _WorldStateScreenState extends State<WorldStateScreen>
   @override
   void initState() {
     super.initState();
-
   }
 
   final colorList = [
@@ -33,11 +32,8 @@ class _WorldStateScreenState extends State<WorldStateScreen>
   @override
   Widget build(BuildContext context) {
     StateServices stateServices = StateServices();
-    return SingleChildScrollView(
-      child: Scaffold(
-        body: SafeArea(
-            child: Padding(
-          padding: const EdgeInsets.all(8.0),
+    return Scaffold(
+      body: SafeArea(
           child: Column(
             children: [
               SizedBox(
@@ -47,13 +43,11 @@ class _WorldStateScreenState extends State<WorldStateScreen>
                 future: stateServices.FetchWorldStatesRecords(),
                 builder: (context, AsyncSnapshot<WorldStatesModel> snapshot) {
                   if (!snapshot.hasData) {
-                    return Expanded(
-                        flex: 1,
-                        child: SpinKitFadingCircle(
-                          color: Colors.white,
-                          size: 50,
-                          controller: _animationController,
-                        ));
+                    return SpinKitFadingCircle(
+                      color: Colors.white,
+                      size: 50,
+                      controller: _animationController,
+                    );
                   } else {
                     return Column(
                       children: [
@@ -66,14 +60,14 @@ class _WorldStateScreenState extends State<WorldStateScreen>
                                 double.parse(snapshot.data!.cases!.toString()),
                             "Recovered":
                                 double.parse(snapshot.data!.deaths!.toString()),
-                            "Deaths": double.parse(
-                                snapshot.data!.recovered!.toString())
+                            "Deaths":
+                                double.parse(snapshot.data!.recovered!.toString())
                           },
                           animationDuration: Duration(milliseconds: 1200),
                           chartType: ChartType.ring,
                           colorList: colorList,
-                          legendOptions: LegendOptions(
-                              legendPosition: LegendPosition.right),
+                          legendOptions:
+                              LegendOptions(legendPosition: LegendPosition.right),
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(
@@ -99,12 +93,11 @@ class _WorldStateScreenState extends State<WorldStateScreen>
                                     value: snapshot.data!.critical.toString()),
                                 ReuseableRow(
                                     title: "Today deaths",
-                                    value:
-                                        snapshot.data!.todayDeaths.toString()),
+                                    value: snapshot.data!.todayDeaths.toString()),
                                 ReuseableRow(
                                     title: "today recovered",
-                                    value: snapshot.data!.todayRecovered
-                                        .toString()),
+                                    value:
+                                        snapshot.data!.todayRecovered.toString()),
                               ],
                             ),
                           ),
@@ -114,12 +107,16 @@ class _WorldStateScreenState extends State<WorldStateScreen>
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const CountriesListScreen(),
+                                  builder: (context) =>
+                                      const CountriesListScreen(),
                                 ));
                           },
                           child: GestureDetector(
-                            onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (_) => CountriesListScreen()));
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => CountriesListScreen()));
                             },
                             child: Container(
                                 height: 40,
@@ -135,10 +132,8 @@ class _WorldStateScreenState extends State<WorldStateScreen>
                   }
                 },
               ),
-             
             ],
           ),
-        )),
       ),
     );
   }
@@ -162,7 +157,7 @@ class ReuseableRow extends StatelessWidget {
           SizedBox(
             height: 5,
           ),
-        const  Divider()
+          const Divider()
         ],
       ),
     );
