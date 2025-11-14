@@ -34,105 +34,110 @@ class _WorldStateScreenState extends State<WorldStateScreen>
     StateServices stateServices = StateServices();
     return Scaffold(
       body: SafeArea(
-          child: Column(
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
-              ),
-              FutureBuilder(
-                future: stateServices.FetchWorldStatesRecords(),
-                builder: (context, AsyncSnapshot<WorldStatesModel> snapshot) {
-                  if (!snapshot.hasData) {
-                    return SpinKitFadingCircle(
-                      color: Colors.white,
-                      size: 50,
-                      controller: _animationController,
-                    );
-                  } else {
-                    return Column(
-                      children: [
-                        PieChart(
-                          chartValuesOptions: const ChartValuesOptions(
-                              showChartValuesInPercentage: true),
-                          chartRadius: MediaQuery.of(context).size.width / 4,
-                          dataMap: {
-                            "Total":
-                                double.parse(snapshot.data!.cases!.toString()),
-                            "Recovered":
-                                double.parse(snapshot.data!.deaths!.toString()),
-                            "Deaths":
-                                double.parse(snapshot.data!.recovered!.toString())
-                          },
-                          animationDuration:const Duration(milliseconds: 1200),
-                          chartType: ChartType.ring,
-                          colorList: colorList,
-                          legendOptions:
-                             const LegendOptions(legendPosition: LegendPosition.right),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical:
-                                  MediaQuery.of(context).size.height * 0.02),
-                          child: Card(
-                            child: Column(
-                              children: [
-                                ReuseableRow(
-                                    title: "total",
-                                    value: snapshot.data!.cases.toString()),
-                                ReuseableRow(
-                                    title: "deaths",
-                                    value: snapshot.data!.deaths.toString()),
-                                ReuseableRow(
-                                    title: "recovered",
-                                    value: snapshot.data!.recovered.toString()),
-                                ReuseableRow(
-                                    title: "Active",
-                                    value: snapshot.data!.active.toString()),
-                                ReuseableRow(
-                                    title: "critical",
-                                    value: snapshot.data!.critical.toString()),
-                                ReuseableRow(
-                                    title: "Today deaths",
-                                    value: snapshot.data!.todayDeaths.toString()),
-                                ReuseableRow(
-                                    title: "today recovered",
-                                    value:
-                                        snapshot.data!.todayRecovered.toString()),
-                              ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
+                ),
+                FutureBuilder(
+                  future: stateServices.FetchWorldStatesRecords(),
+                  builder: (context, AsyncSnapshot<WorldStatesModel> snapshot) {
+                    if (!snapshot.hasData) {
+                      return SpinKitFadingCircle(
+                        color: Colors.white,
+                        size: 50,
+                        controller: _animationController,
+                      );
+                    } else {
+                      return Column(
+                        children: [
+                          PieChart(
+                            chartValuesOptions: const ChartValuesOptions(
+                                showChartValuesInPercentage: true),
+                            chartRadius: MediaQuery.of(context).size.width / 4,
+                            dataMap: {
+                              "Total":
+                                  double.parse(snapshot.data!.cases!.toString()),
+                              "Recovered":
+                                  double.parse(snapshot.data!.deaths!.toString()),
+                              "Deaths":
+                                  double.parse(snapshot.data!.recovered!.toString())
+                            },
+                            animationDuration:const Duration(milliseconds: 1200),
+                            chartType: ChartType.ring,
+                            colorList: colorList,
+                            legendOptions:
+                               const LegendOptions(legendPosition: LegendPosition.right),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical:
+                                    MediaQuery.of(context).size.height * 0.02),
+                            child: Card(
+                              child: Column(
+                                children: [
+                                  ReuseableRow(
+                                      title: "total",
+                                      value: snapshot.data!.cases.toString()),
+                                  ReuseableRow(
+                                      title: "deaths",
+                                      value: snapshot.data!.deaths.toString()),
+                                  ReuseableRow(
+                                      title: "recovered",
+                                      value: snapshot.data!.recovered.toString()),
+                                  ReuseableRow(
+                                      title: "Active",
+                                      value: snapshot.data!.active.toString()),
+                                  ReuseableRow(
+                                      title: "critical",
+                                      value: snapshot.data!.critical.toString()),
+                                  ReuseableRow(
+                                      title: "Today deaths",
+                                      value: snapshot.data!.todayDeaths.toString()),
+                                  ReuseableRow(
+                                      title: "today recovered",
+                                      value:
+                                          snapshot.data!.todayRecovered.toString()),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const CountriesListScreen(),
-                                ));
-                          },
-                          child: GestureDetector(
+                          GestureDetector(
                             onTap: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (_) => CountriesListScreen()));
+                                    builder: (context) =>
+                                        const CountriesListScreen(),
+                                  ));
                             },
-                            child: Container(
-                                height: 40,
-                                decoration:const BoxDecoration(
-                                  color: Color(0xff1aa260),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                )),
-                          ),
-                        )
-                      ],
-                    );
-                  }
-                },
-              ),
-            ],
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => CountriesListScreen()));
+                              },
+                              child: Container(
+                                child: Center(child: const Text("view Countries")),
+                                  height: 40,
+                                  margin:const EdgeInsets.symmetric(horizontal: 30,vertical: 20),
+                                  width: double.infinity,
+                                  decoration:const BoxDecoration(
+                                    color: Color(0xff1aa260),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                  )),
+                            ),
+                          )
+                        ],
+                      );
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
       ),
     );
@@ -154,7 +159,7 @@ class ReuseableRow extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [Text(title), Text(value)],
           ),
-          SizedBox(
+        const  SizedBox(
             height: 5,
           ),
           const Divider()

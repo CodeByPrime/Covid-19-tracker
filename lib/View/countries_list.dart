@@ -171,7 +171,7 @@ class _CountriesListScreenState extends State<CountriesListScreen> {
                                         height: 50,
                                         width: 50,
                                         image: NetworkImage(snapshot
-                                            .data![index]['countryInfo'])),
+                                            .data![index]['countryInfo']['flag'])),
                                   ),
                                 )
                               ],
