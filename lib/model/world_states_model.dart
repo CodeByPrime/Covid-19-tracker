@@ -1,3 +1,5 @@
+/// The `WorldStatesModel` class in Dart represents statistics related to global COVID-19 cases and
+/// testing.
 import 'package:flutter/material.dart';
 
 class WorldStatesModel {

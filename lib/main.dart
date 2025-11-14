@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: Colors.blue,
       ),
-      home: const CountriesListScreen(),
+      home: const SplashScreen(),
     );
   }
 }
