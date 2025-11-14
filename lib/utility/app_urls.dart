@@ -1,3 +1,4 @@
+/// The `AppUrls` class contains static string constants for various COVID-19 related API endpoints.
 import "package:flutter/material.dart";
 
 

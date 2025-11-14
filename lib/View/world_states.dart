@@ -52,7 +52,7 @@ class _WorldStateScreenState extends State<WorldStateScreen>
                     return Column(
                       children: [
                         PieChart(
-                          chartValuesOptions: ChartValuesOptions(
+                          chartValuesOptions: const ChartValuesOptions(
                               showChartValuesInPercentage: true),
                           chartRadius: MediaQuery.of(context).size.width / 4,
                           dataMap: {
@@ -63,11 +63,11 @@ class _WorldStateScreenState extends State<WorldStateScreen>
                             "Deaths":
                                 double.parse(snapshot.data!.recovered!.toString())
                           },
-                          animationDuration: Duration(milliseconds: 1200),
+                          animationDuration:const Duration(milliseconds: 1200),
                           chartType: ChartType.ring,
                           colorList: colorList,
                           legendOptions:
-                              LegendOptions(legendPosition: LegendPosition.right),
+                             const LegendOptions(legendPosition: LegendPosition.right),
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(
@@ -120,7 +120,7 @@ class _WorldStateScreenState extends State<WorldStateScreen>
                             },
                             child: Container(
                                 height: 40,
-                                decoration: BoxDecoration(
+                                decoration:const BoxDecoration(
                                   color: Color(0xff1aa260),
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
