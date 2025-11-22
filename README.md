@@ -12,10 +12,6 @@ A Flutter-based mobile application for tracking global and country-specific COVI
 - **Real-time Data**: Fetches live data from the Disease.sh API.
 - **Loading Animations**: Includes shimmer effects for loading states and spinning animations.
 
-## Screenshots
-
-_(Add screenshots here if available)_
-
 
 
 ### Prerequisites
